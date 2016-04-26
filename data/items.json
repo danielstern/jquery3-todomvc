@@ -1,6 +1,16 @@
 [{
 	"id":1,
 	"complete":false,
-	"title":"Update text editor",
+	"title":"Remove deprecated Ajax methods",
 	"date":0
+},{
+	"id":2,
+	"complete":true,
+	"title":"Update obsolete listeners",
+	"date":1
+},{
+	"id":3,
+	"complete":false,
+	"title":"Fix uncaught error cases",
+	"date":2
 }]
