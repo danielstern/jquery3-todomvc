@@ -3,19 +3,21 @@ let items = [];
 let showComplete = true;
 $(window).load(()=>{
 	console.log(`Application loaded, running ${$.fn.jquery}`);
-	$("#showCompleted").change((e)=>{
+	$("#showCompleted").change(function(e){
 		showComplete = e.target.checked;
-		render();
+		var checkedItems = $('li').filter(function(a){
+			return $(this).find('input')[0].checked;
+		});
+
+		if (showComplete)
+		{
+			checkedItems.show();
+		} else {
+			checkedItems.hide();
+		}
 	});
 
-/*	$("#newItem").submit((e)=>{
-
-		debugger;
-		render();
-	});*/
-
 	$("#newItemForm").submit((e)=>{
-		//var values = $(this).serialize();
 		title = $('#newItemTitle').val();
 		if (!title) {
 			return;

@@ -1,16 +1,13 @@
 [{
 	"id":1,
 	"complete":false,
-	"title":"Remove deprecated Ajax methods",
-	"date":1461694197110
+	"title":"Remove deprecated Ajax methods"
 },{
 	"id":2,
 	"complete":true,
-	"title":"Update obsolete listeners",
-	"date":1461693197110
+	"title":"Update obsolete listeners"
 },{
 	"id":3,
 	"complete":false,
-	"title":"Fix uncaught error cases",
-	"date":1461654197110
+	"title":"Fix uncaught error cases"
 }]
