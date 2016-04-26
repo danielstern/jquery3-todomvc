@@ -10,9 +10,12 @@ https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 <body>
 	<section class="container">
 	<h2>jQuery 2 TodoMVC Demo</h2>
-	<ol id="target">
-
-	</ol>
+	<h3>To Do...</h3>
+	<ol id="target"></ol>
+	<form id="newItemForm">
+		<input id="newItemTitle" type="text"  name="title" placeholder="Add a new item">
+		<input type="submit" id="newItem" value="Add">
+	</form>
 	<div>
 		Show Completed
 		<input type=checkbox checked id="showCompleted"></checkbox>
