@@ -9,18 +9,42 @@ $(window).load(()=>{
 			return $(this).find('input')[0].checked;
 		});
 
+		var animate = $('#enableAnimation')[0].checked;
+
 		if (showComplete)
 		{
-			checkedItems.show();
+			checkedItems.show(animate ? "slow" : undefined);
 		} else {
-			checkedItems.hide();
+			checkedItems.hide(animate ? "slow" : undefined);
 		}
 	});
 
 	$("#newItemForm").submit((e)=>{
+		e.preventDefault();
+
+		var promise = jQuery.Deferred();
+
+		var child = promise.then(function(){
+			console.log("New list item was accepted");
+		}, function(){
+			throw new Error( "New list item was rejected" );
+		});
+
+		child.then(function(){
+		  console.log("Adding to list successful.");
+		},function(){
+		  // This cleanup script never runs in jQuery 2
+		  console.log("Adding to list failed. Running cleanup");
+		  alert("Please enter a name for your To Do Item");
+		})
+
 		title = $('#newItemTitle').val();
-		if (!title) {
-			return;
+		if (title) {
+			simulateServerCall(promise.resolve);
+		} else {
+			promise.reject();
+			// In jQuery2 a return statement is not necessary, since the rejection happens instantly and stops any further code execution
+			//return;
 		}
 
 		items.push({
@@ -30,7 +54,6 @@ $(window).load(()=>{
 			date:new Date().getTime()
 		})
 		$('#newItemTitle').val("");
-		e.preventDefault();
 		render();
 	})
 
@@ -72,5 +95,8 @@ let render = ()=>{
 		})
 }
 
+let simulateServerCall = (cb)=>{
+	cb()
+};
 // this causes an error with new jQuery
 $("#");
