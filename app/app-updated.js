@@ -77,7 +77,7 @@ let render = ()=>{
 		.forEach((d)=>{
 			$("#target").append(
 				`
-					<li data=${d.id}>
+					<li data-id=${d.id}>
 					${d.title}
 					<input type="checkbox" ${d.complete ? "checked" : ""}/>
 				</li>
