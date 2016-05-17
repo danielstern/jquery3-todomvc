@@ -1,9 +1,9 @@
 // Here a deprecated call of .load is used which will break when updating jQuery
 let items = [];
 let showComplete = true;
-$(window).load(()=>{
+$3(window).on('load',()=>{
 	console.log(`Application loaded, running ${$.fn.jquery}`);
-	$("#showCompleted").change(function(e){
+	$3("#showCompleted").on('change',function(e){
 		showComplete = e.target.checked;
 		var checkedItems = $('li').filter(function(a){
 			return $(this).find('input')[0].checked;
@@ -19,7 +19,7 @@ $(window).load(()=>{
 		}
 	});
 
-	$("#newItemForm").submit((e)=>{
+	$3("#newItemForm").on('submit',(e)=>{
 		e.preventDefault();
 
 		var promise = jQuery.Deferred();
