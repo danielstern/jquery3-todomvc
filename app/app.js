@@ -57,9 +57,9 @@ $3(window).on('load',()=>{
 		render();
 	})
 
-	$.getJSON('/items')
-	.complete((data)=>{
-		items = data.responseJSON;
+	$3.getJSON('/items')
+	.done((data)=>{
+		items = data;
 		render();
 	});
 
@@ -99,4 +99,9 @@ let simulateServerCall = (cb)=>{
 	cb()
 };
 // this causes an error with new jQuery
-$("#");
+try {
+	$3("#");
+} catch (e) {
+	console.log("Caught deprecated selector");
+}
+
